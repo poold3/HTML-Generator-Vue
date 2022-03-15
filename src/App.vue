@@ -31,7 +31,7 @@
     </header>
     <router-view id="content" class="content"/>
     <footer>
-      <p><a href="https://github.com/poold3/CS-260/tree/main/HTML-Generator" class="footerLink">Source</a></p>
+      <p><a href="https://github.com/poold3/HTML-Generator-Vue" class="footerLink">Source</a></p>
     </footer>
   </div>
 </template>
