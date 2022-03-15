@@ -29,9 +29,7 @@
           
       </nav>
     </header>
-    <section class="content">
-      <router-view/>
-    </section>
+    <router-view id="content" class="content"/>
     <footer>
       <p><a href="https://github.com/poold3/CS-260/tree/main/HTML-Generator" class="footerLink">Source</a></p>
     </footer>
@@ -58,7 +56,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 #app {
     display: flex;
     flex-direction: column;
@@ -70,11 +68,11 @@ header {
 }
 
 .content {
-    flex: 0 1 83vh;
+    flex: 0 0 83vh;
     text-align: center;
     color: #048ABF;
-
 }
+
 * {
     font-family:Georgia, 'Times New Roman', Times, serif;
 }

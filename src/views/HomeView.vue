@@ -2,10 +2,10 @@
     <div>
       <div class="row" id="headerRow">
         <div class="row" id="subheaderRow">
-            <div class="block block-column-centered block-header">
+            <div class="block block-column-centered">
                 <img v-bind:style="transformStyle" src="../../public/favicon/android-chrome-192x192.png" id="logoHeader">
             </div>
-            <div class="block block-column-centered block-header">
+            <div class="block block-column-centered">
                 <p class="blockTitle">&#60;h1&#62;HTML Generator&#60;&#47;h1&#62;</p>
                 <p class="blockText" id="Test">Head to the "Create" page to begin!</p>
                 <div class="headerButtons">
@@ -88,7 +88,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .row {
     width: 100%;
     height: auto;
@@ -144,8 +144,7 @@ export default {
 #loginButton:hover{
     transform: scale(1.05);
 }
-
-@media only screen and (min-width: 901px) {
+@media only screen and (min-width: 1201px) {
     .row {
         justify-content: space-around;
         flex-direction: row;
@@ -155,12 +154,30 @@ export default {
     }
     #subheaderRow {
         justify-content: center;
+        align-items: center;
+    }
+    .block {
+        width: 30%;
+    }
+    .coverImage {
+        height: 450px;
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+    .row {
+        justify-content: space-around;
+        flex-direction: row;
+    }
+    #headerRow {
+        flex-direction: column;
+    }
+    #subheaderRow {
+        justify-content: center;
+        align-items: center;
     }
     .block {
         width: 45%;
-    }
-    .block-header {
-        width: 25%;
     }
     .coverImage {
         height: 450px;
