@@ -44,7 +44,6 @@ export default {
       fetch(url) 
         .then(response => response.text())
         .then(function(data) {
-            //console.log(data);
             //We need to pull out the book title between the <titleweb></titleweb> tags
             try {
                 let firstPosition = data.search("<titleweb>");
@@ -59,12 +58,10 @@ export default {
                 }
             }
             catch(err) {
-                console.log(err);
                 vm.generatingTitle = false;
             }
         })
         .catch(function(error) {
-            console.log(error);
             vm.generatingTitle = false;
         });
       this.generatingTitle = true;
