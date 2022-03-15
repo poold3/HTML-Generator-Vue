@@ -61,7 +61,7 @@ export default {
                 vm.generatingTitle = false;
             }
         })
-        .catch(function(error) {
+        .catch(function() {
             vm.generatingTitle = false;
         });
       this.generatingTitle = true;
