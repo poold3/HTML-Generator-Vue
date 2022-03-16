@@ -6,6 +6,48 @@ Vue.config.productionTip = false
 
 let data = {
   title: "",
+  NewSection(name = "", id = "", parent = "", children = []) {
+    let newSection = new Object();
+    newSection.name = name;
+    newSection.id = id;
+    newSection.parent = parent;
+    newSection.children = children;
+    return newSection;
+  },
+  sections: [],
+  sectionIdNumber: 0,
+  IncrementSectionId() {
+    this.sectionIdNumber += 1;
+  },
+  getSectionByIdRecursive(section, id) {
+    if (id === section.id) {
+      return section;
+    }
+    let children = section.children;
+    for (let i = 0; i < children.length; ++i) {
+        let tempSection = this.getSectionByIdRecursive(children[i], id);
+        if (tempSection !== "" && id === tempSection.id) {
+            return tempSection;
+        }
+    }
+    return "";
+  },
+  getSectionById(id) {
+    for (let i = 0; i < this.sections.length; ++i) {
+        if (id === this.sections[i].id) {
+            return this.sections[i];
+        }
+        let children = this.sections[i].children;
+        for (let i = 0; i < children.length; ++i) {
+            let section = this.getSectionByIdRecursive(children[i], id);
+            if (section !== "" && id === section.id) {
+                return section;
+            }
+        }
+        
+    }
+    return "";
+  },
 }
 
 new Vue({

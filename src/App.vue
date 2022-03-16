@@ -46,6 +46,12 @@ export default {
       }
     }
   },
+  created () {
+    this.$root.$data.IncrementSectionId();
+    let sectionId = "section" + this.$root.$data.sectionIdNumber;
+    let newBodySection = this.$root.$data.NewSection("body", sectionId);
+    this.$root.$data.sections.push(newBodySection);
+  },
   methods: {
     RotateNavBarIcon(value) {
       this.transformStyle.transform = value;
