@@ -69,6 +69,17 @@ export default {
     background-color: white;
 }
 
+#app /deep/ #exitIcon {
+    position: absolute;
+    width: 30px;
+    cursor: pointer;
+    transition-duration: 0.1s;
+}
+
+#app /deep/ #exitIcon:hover {
+    transform: scale(1.1);
+}
+
 header {
     flex: 0 0 12vh;
 }

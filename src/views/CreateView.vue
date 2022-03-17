@@ -6,7 +6,7 @@
     <img id="expandToolbarIcon" src="Images/down-arrow-white.png" :style="expandIconStyle" @click="ExpandToolbar">
     <div id="toolItems" :style="expandToolItemsStyle">
         <div class="tool-item">
-            <button id="sectionItem" class="toolBarHoverButton hoverButton centerButton tool-name" onclick="">Sections</button>
+            <button id="sectionItem" class="toolBarHoverButton hoverButton centerButton tool-name" @click="modalToShow = 'displaySections'">Sections</button>
             <div id="sectionItem-Description" class="toolDescription">
                 <p class="descriptionText">Organize the site into sections. Add style, transitions, and content to individual sections.</p>
             </div>
@@ -154,48 +154,14 @@ export default {
     flex-direction: column;
 }
 
-.input-text-new {
+.modal /deep/ .input-text-new {
     width: 80%;
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
 }
 
-#sectionDisplay {
-    width: 100%;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.section {
-    max-width: 200px;
-    height: 150px;
-    padding: 5px;
-    margin: 20px;
-    border-radius: 5px;
-    background-color: #048ABF;
-    color: #F2F2F2;
-}
-
-.grabCursor {
-    cursor: grab;
-}
-
-.sectionTrashIcon {
-    cursor: pointer;
-    float: right;
-}
-
-.sectionEditIcon {
-    cursor: pointer;
-    float: left;
-}
-
-.submitButton {
+.modal /deep/ .submitButton {
     background-color: #037F8C;
     border-radius: 5px;
     color: #F2F2F2;
@@ -209,7 +175,7 @@ export default {
     transition-duration: 0.3s;
 }
 
-.submitButton:hover {
+.modal /deep/ .submitButton:hover {
     transform: scale(1.03);
 }
 
@@ -273,18 +239,6 @@ export default {
 
 .tool-name:hover + .toolDescription {
     display: block;
-}
-
-#exitIcon {
-    position: absolute;
-    width: 30px;
-    cursor: pointer;
-    transition-duration: 0.1s;
-}
-
-#exitIcon:hover {
-    /* transform: rotateZ(45deg); */
-    transform: scale(1.1);
 }
 
 .inputFields {
@@ -383,14 +337,6 @@ export default {
         margin: 0 auto;
     }
 
-}
-
-.disable-select {
-    user-select: none; /* supported by Chrome and Opera */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 </style>

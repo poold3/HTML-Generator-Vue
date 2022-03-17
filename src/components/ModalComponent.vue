@@ -1,10 +1,11 @@
 <template>
 <div>
     <addTitleModal class="modal-content" @NextModal="LoadNewModal" v-show="currentModal === 'addTitle'"/>
-    <!-- <addSectionModal/>
+    <displaySectionsModal class="modal-content" @NextModal="LoadNewModal" @ParentSectionId="SetTempSectionId" v-show="currentModal === 'displaySections'"/>
+    <addSectionModal class="modal-content" @NextModal="LoadNewModal" v-show="currentModal === 'addSection'" :parentSectionId="tempSectionId"/>
+    <!--
     <editSectionNameModal/>
     <addRulesModal/>
-    <displaySectionsModal/>
     <addTextModal/>
     <addImageModal/> -->
 </div>
@@ -12,12 +13,12 @@
 
 <script>
 import addTitleModal from "./addTitleModal.vue"
-// import addSectionModal from "addSectionModal.vue"
-// import editSectionNameModal from "editSectionNameModal.vue"
-// import addRulesModal from "addRulesModal.vue"
-// import displaySectionsModal from "displaySectionsModal.vue"
-// import addTextModal from "addTextModal.vue"
-// import addImageModal from "addImageModal.vue"
+import addSectionModal from "./addSectionModal.vue"
+// import editSectionNameModal from "./editSectionNameModal.vue"
+// import addRulesModal from "./addRulesModal.vue"
+import displaySectionsModal from "./displaySectionsModal.vue"
+// import addTextModal from "./addTextModal.vue"
+// import addImageModal from "./addImageModal.vue"
 export default {
   name: 'ModalComponent',
   props: {
@@ -25,22 +26,25 @@ export default {
   },
   data () {
       return {
-          
+          tempSectionId: '',
       }
   },
   components : {
     addTitleModal,
-    // addSectionModal,
+    addSectionModal,
     // editSectionNameModal,
     // addRulesModal,
-    // displaySectionsModal,
+    displaySectionsModal,
     // addTextModal,
     // addImageModal,
   },
   methods: {
       LoadNewModal(value) {
           this.$emit("NextModal", value);
-      }
+      },
+      SetTempSectionId(sectionId) {
+          this.tempSectionId = sectionId;
+      },
   }
 }
 </script>

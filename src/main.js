@@ -6,7 +6,9 @@ Vue.config.productionTip = false
 
 let data = {
   title: "",
-  NewSection(name = "", id = "", parent = "", children = []) {
+  sections: [],
+  sectionIdNumber: 0,
+  NewSection(name = "", id = "", parent = null, children = []) {
     let newSection = new Object();
     newSection.name = name;
     newSection.id = id;
@@ -14,8 +16,9 @@ let data = {
     newSection.children = children;
     return newSection;
   },
-  sections: [],
-  sectionIdNumber: 0,
+  GetSections() {
+    return this.sections;
+  },
   IncrementSectionId() {
     this.sectionIdNumber += 1;
   },
