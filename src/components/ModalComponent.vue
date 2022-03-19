@@ -1,10 +1,10 @@
 <template>
 <div>
     <addTitleModal class="modal-content" @NextModal="LoadNewModal" v-show="currentModal === 'addTitle'"/>
-    <displaySectionsModal class="modal-content" @NextModal="LoadNewModal" @ParentSectionId="SetTempSectionId" v-show="currentModal === 'displaySections'"/>
+    <displaySectionsModal class="modal-content" @NextModal="LoadNewModal" @ParentSectionId="SetTempSectionId" @TempSection="SetTempSectionId" v-show="currentModal === 'displaySections'"/>
     <addSectionModal class="modal-content" @NextModal="LoadNewModal" v-show="currentModal === 'addSection'" :parentSectionId="tempSectionId"/>
+    <editSectionNameModal class="modal-content" @NextModal="LoadNewModal" v-show="currentModal === 'editSectionName'" :sectionId="tempSectionId"/>
     <!--
-    <editSectionNameModal/>
     <addRulesModal/>
     <addTextModal/>
     <addImageModal/> -->
@@ -14,7 +14,7 @@
 <script>
 import addTitleModal from "./addTitleModal.vue"
 import addSectionModal from "./addSectionModal.vue"
-// import editSectionNameModal from "./editSectionNameModal.vue"
+import editSectionNameModal from "./editSectionNameModal.vue"
 // import addRulesModal from "./addRulesModal.vue"
 import displaySectionsModal from "./displaySectionsModal.vue"
 // import addTextModal from "./addTextModal.vue"
@@ -32,7 +32,7 @@ export default {
   components : {
     addTitleModal,
     addSectionModal,
-    // editSectionNameModal,
+    editSectionNameModal,
     // addRulesModal,
     displaySectionsModal,
     // addTextModal,
