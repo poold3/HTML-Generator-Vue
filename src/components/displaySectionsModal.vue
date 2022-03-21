@@ -5,7 +5,7 @@
       <div id="sectionDisplay" @mousemove="MoveSection">
       <div class="section" v-for="section in sectionList" :key="section.id" :name="section.name" :data-section-id="section.id" v-on="isDragging === true && section.id !== sectionBeingMoved.getAttribute('data-section-id') ? {mouseenter: MouseEnterSection, transitionend: TransitionEndSection} : {}">
         <p class="descriptionText disable-select" :class="{grabCursor: !isDragging, grabbingCursor: isDragging}" @mousedown="OnDragStartSection($event)" @mouseup="OnDragEndSection()">{{section.name}}</p>
-        <button class="toolBarHoverButton disable-select">Stylize</button>
+        <button class="toolBarHoverButton disable-select" @click="StyleSection(section.id)">Stylize</button>
         <button class="toolBarHoverButton disable-select" @click="DisplaySections(section.children, section)">Enter</button>
         <br>
         <img v-if="parentSection !== null" class="sectionTrashIcon" src="../../public/Images/trash.png" @click="DeleteSection(section.id)">
@@ -43,6 +43,10 @@ export default {
   methods: {
     Close() {
       this.$emit("NextModal", "");
+    },
+    StyleSection(sectionId) {
+      this.$emit("TempSection", sectionId);
+      this.$emit("NextModal", "addRules");
     },
     OnDragStartSection(e) {
       if (this.sectionList.length > 1) {
