@@ -208,3 +208,5 @@ let rules = [
         guide: "https://developer.mozilla.org/en-US/docs/Web/CSS/z-index"
     },
 ];
+
+export default rules;

@@ -4,10 +4,18 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+let styleElement = document.createElement('style');
+document.head.appendChild(styleElement);
+
+
 let data = {
   title: "",
   sections: [],
   sectionIdNumber: 0,
+  styleSheet: styleElement.sheet,
+  getRuleList() {
+    return this.styleSheet;
+  },
   NewSection(name = "", id = "", parent = null, children = []) {
     let newSection = new Object();
     newSection.name = name;

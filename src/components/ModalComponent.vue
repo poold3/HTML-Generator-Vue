@@ -57,6 +57,7 @@ export default {
         margin: 0 auto;
         padding: 10px;
         width: 70%;
+        min-height: 200px;
         height: auto;
         overflow: auto;
     }

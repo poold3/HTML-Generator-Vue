@@ -266,22 +266,6 @@ export default {
         this.parentDirectoryName = "Sections";
       }
       console.log(this.parentDirectoryName);
-
-          //!**title.addEventListener("mousedown", OnDragStartSection);
-          //!**title.addEventListener("mouseup", OnDragEndSection);
-          
-          //!** styleButton.addEventListener("click", function(e) {
-          //!**     OpenAddRules(sectionsList[i]);
-          //!** });
-          //!**styleButton.addEventListener("mouseenter", MouseEnterButton);
-          //!**styleButton.addEventListener("mouseleave", MouseLeaveButton);
-          
-          //!**childrenButton.addEventListener("mouseenter", MouseEnterButton);
-          //!**childrenButton.addEventListener("mouseleave", MouseLeaveButton);
-          
-          //!**trash.addEventListener("click", StartDeleteSection);
-              
-          //!**edit.addEventListener("click", OpenEditSectionName);
     },
   },
 }
